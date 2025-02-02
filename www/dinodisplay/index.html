@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Gallery</title>
+    <link rel="icon" href="https://bbsshack.club/logo.webp" type="image/webp">
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Soft blue for a playful vibe */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars due to animations */
+        }
+
+        /* Positioning for the title and subtitle at the very top with a higher z-index */
+        h1 {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            margin: 0;
+            font-size: 6rem; /* Large font size for "Dino Gallery" */
+            z-index: 20; /* Make sure it's above the floating images */
+            padding-top: 20px; /* Add padding to avoid overlap with the top */
+        }
+
+        h2 {
+            position: fixed;
+            top: 8rem; /* Adjust this for proper spacing between title and subtitle */
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            font-size: 2.5rem; /* Slightly larger subtitle "made by BBSS Hack Club" */
+            color: #555; /* Subtle text color for contrast */
+            z-index: 20; /* Keep it above images */
+        }
+
+        /* Gallery setup */
+        #gallery {
+            position: absolute;
+            top: 12rem; /* Space for title and subtitle */
+            width: 100vw;
+            height: 90vh;
+            overflow: hidden; /* Ensure no scrollbars for animations */
+        }
+
+        #gallery img {
+            width: 15vw; /* Scale images relative to viewport width */
+            max-width: 250px; /* Prevent overly large images */
+            min-width: 120px; /* Ensure minimum size for visibility */
+            height: auto;
+            position: absolute;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            opacity: 1; /* Avoid sudden flickers */
+        }
+
+        /* Smooth random floating effect */
+        @keyframes float-random {
+            0% {
+                transform: translate(
+                    calc(var(--start-x) * 1vw), 
+                    calc(var(--start-y) * 1vh)
+                );
+                opacity: 1; /* No fade-in at the start */
+            }
+            50% {
+                opacity: 1; /* Keep full opacity during movement */
+            }
+            100% {
+                transform: translate(
+                    calc(var(--end-x) * 1vw), 
+                    calc(var(--end-y) * 1vh)
+                );
+                opacity: 0; /* Fade out as it leaves */
+            }
+        }
+
+        /* Static overlay for logo */
+        #logo {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 20vw; /* Scale logo relative to viewport width */
+            max-width: 200px; /* Prevent overly large logo */
+            min-width: 120px; /* Ensure visibility */
+            height: auto;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        /* Static overlay for QR code */
+        #qr-code {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 20vw; /* Scale QR code relative to viewport width */
+            max-width: 200px; /* Prevent overly large QR code */
+            min-width: 120px; /* Ensure visibility */
+            height: auto;
+            z-index: 10; /* Ensure it stays on top */
+        }
+    </style>
+    <script>
+async function loadImages() {
+    const gallery = document.getElementById('gallery');
+    const response = await fetch('/images'); // Fetch image list from the server
+    const images = await response.json(); // Get the list of images
+
+    const imageCount = images.length;
+
+    // We'll store previously used images to reduce repetition
+    const previouslyUsedImages = new Set();
+    
+    // Add images dynamically with randomness
+    for (let i = 0; i < 100; i++) { // Load 100 new images each time
+        const img = document.createElement('img');
+
+        // Ensure we don't repeat images too much by picking a random new one
+        let randomImage;
+        do {
+            randomImage = images[Math.floor(Math.random() * imageCount)];
+        } while (previouslyUsedImages.has(randomImage) && previouslyUsedImages.size < imageCount);
+
+        // Mark the image as used
+        previouslyUsedImages.add(randomImage);
+
+        img.src = `/uploads/${randomImage}`; // Random image
+        img.alt = "Dino Image";
+
+        // Randomize starting and ending positions
+        const startX = Math.random() * 200 - 100; // X position (off-screen left or right)
+        const startY = Math.random() * 200 - 100; // Y position (off-screen)
+        const endX = Math.random() * 200 - 100; // End position X (can move off-screen)
+        const endY = Math.random() * 200 - 100; // End position Y (can move off-screen)
+        const duration = Math.random() * 15 + 15; // Random duration 15-30 seconds
+        const delay = Math.random() * 5; // Random delay before starting animation
+
+        // Apply animation properties
+        img.style.setProperty('--start-x', startX);
+        img.style.setProperty('--start-y', startY);
+        img.style.setProperty('--end-x', endX);
+        img.style.setProperty('--end-y', endY);
+        img.style.animation = `float-random ${duration}s linear ${delay}s infinite`;
+
+        // Initial off-screen position
+        img.style.position = 'absolute';
+        img.style.left = `${startX}vw`;
+        img.style.top = `${startY}vh`;
+
+        // Random z-index for overlap effect
+        img.style.zIndex = Math.floor(Math.random() * 100);
+
+        gallery.appendChild(img); // Add new image to the gallery
+    }
+
+    // Limit the number of images in the gallery (optional)
+    const imagesInGallery = gallery.getElementsByTagName('img');
+    while (imagesInGallery.length > 300) { // Limit to 300 images
+        gallery.removeChild(imagesInGallery[0]); // Remove the oldest image
+    }
+}
+
+// Load images when the page loads
+window.onload = function() {
+    loadImages(); // Initial load
+    setInterval(loadImages, 5000); // Refresh every 5 seconds, adding new images
+};
+
+</script>
+</head>
+<body>
+    <h1>Dino Gallery</h1>
+    <h2>made by BBSS Hack Club</h2>
+    <div id="gallery"></div>
+    <!-- Static overlay logo -->
+    <img id="logo" src="https://bbsshack.club/logo.webp" alt="Logo">
+    <!-- Static overlay QR code -->
+    <img id="qr-code" src="https://cloud-52mj0s3p5-hack-club-bot.vercel.app/0qr.png" alt="QR Code">
+</body>
+</html>

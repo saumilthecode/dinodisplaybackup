@@ -1,0 +1,202 @@
+
+
+Sat Nov 23 15:07:19 2024
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 6.1.0-27-amd64 (#1 SMP PREEMPT_DYNAMIC Debian 6.1.115-1 (2024-11-01)) x86_64
+Compiler: GCC 12.2
+ext2fs lib: 1.47.0, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.3
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop0 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop1 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop2 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop3 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop4 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop5 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop6 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop7 - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/vda - 64 GB / 60 GiB - CHS 124830 16 63, sector size=512
+Disk /dev/vdb - 499 KB / 488 KiB - CHS 2 16 63 (RO), sector size=512
+
+Partition table type (auto): EFI GPT
+Disk /dev/vda - 64 GB / 60 GiB
+Partition table type: EFI GPT
+
+Interface Advanced
+hdr_size=92
+hdr_lba_self=1
+hdr_lba_alt=125829119 (expected 125829119)
+hdr_lba_start=2048
+hdr_lba_end=125829086
+hdr_lba_table=2
+hdr_entries=128
+hdr_entsz=128
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+14 P Unknown                     2048       8191       6144
+15 P EFI System                  8192     262143     253952
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+ 1 P Unknown                   262144  125829086  125566943
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+
+Analyse Disk /dev/vda - 64 GB / 60 GiB - CHS 124830 16 63
+hdr_size=92
+hdr_lba_self=1
+hdr_lba_alt=125829119 (expected 125829119)
+hdr_lba_start=2048
+hdr_lba_end=125829086
+hdr_lba_table=2
+hdr_entries=128
+hdr_entsz=128
+4f68bce3 e8cd 4db1 96 e7 fb ca f9 84 b7 09
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+Current partition structure:
+ 1 P Unknown                   262144  125829086  125566943
+14 P Unknown                     2048       8191       6144
+15 P EFI System                  8192     262143     253952
+
+search_part()
+Disk /dev/vda - 64 GB / 60 GiB - CHS 124830 16 63
+FAT16 at 8/2/3
+check_FAT: Unusual number of reserved sectors 4 (FAT), should be 1.
+FAT1 : 4-251
+FAT2 : 252-499
+start_rootdir : 500
+Data : 532-253887
+sectors : 253890
+cluster_size : 4
+no_of_cluster : 63339 (2 - 63340)
+fat_length 248 calculated 248
+heads/cylinder 128 (FAT) != 16 (HD)
+
+FAT16 at 8/2/3
+     EFI System                  8192     262081     253890 [EFI System Partition] [NO NAME]
+     FAT16, blocksize=2048, 129 MB / 123 MiB
+
+recover_EXT2: s_block_group_nr=0/478, s_mnt_count=9/4294967295, s_blocks_per_group=32768, s_inodes_per_group=8192
+recover_EXT2: s_blocksize=4096
+recover_EXT2: s_blocks_count 15695867
+recover_EXT2: part_size 125566936
+Filesystem created: Fri Oct  4 04:21:51 2024
+Last mount time:    Mon Nov 18 13:45:56 2024
+     Linux filesys. data       262144  125829079  125566936
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 64 GB / 59 GiB
+
+Results
+   P EFI System                  8192     262081     253890 [EFI System Partition] [NO NAME]
+     FAT16, blocksize=2048, 129 MB / 123 MiB
+   P Linux filesys. data       262144  125829079  125566936
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 64 GB / 59 GiB
+
+Hint for advanced users: dmsetup may be used if you prefer to avoid rewriting the partition table for the moment:
+echo "0 253890 linear /dev/vda 8192" | dmsetup create test0
+echo "0 125566936 linear /dev/vda 262144" | dmsetup create test1
+
+interface_write()
+ 1 P EFI System                  8192     262081     253890 [EFI System Partition] [NO NAME]
+ 2 P Linux filesys. data       262144  125829079  125566936
+simulate write!
+
+TestDisk exited normally.

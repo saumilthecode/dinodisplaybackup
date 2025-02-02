@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CYN7E41HXV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CYN7E41HXV');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBSS HC Draw A Dino</title>
+	<link rel="icon" href="https://bbsshack.club/logo.webp" type="image/webp">
+
+    <style>
+        body { 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        canvas { 
+            border: 1px solid #000; 
+            display: block; 
+            margin: 20px auto; 
+            background-color: white;
+        }
+        button { 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        let isDrawing = false;
+        let canvas, ctx, canvasRect;
+    
+        window.onload = function () {
+            canvas = document.getElementById('drawingCanvas');
+            ctx = canvas.getContext('2d');
+            // Dynamically resize canvas based on screen size
+            canvas.width = window.innerWidth * 0.9;
+            canvas.height = window.innerHeight * 0.5;
+    
+            // Capture the canvas's bounding rectangle for accurate touch/mouse positioning
+            canvasRect = canvas.getBoundingClientRect();
+    
+            canvas.addEventListener('touchstart', startDrawing);
+            canvas.addEventListener('touchmove', draw);
+            canvas.addEventListener('touchend', stopDrawing);
+    
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+        };
+    
+        function startDrawing(e) {
+            e.preventDefault(); // Prevents touch/mouse events from being handled by other UI elements
+            isDrawing = true;
+            const { clientX, clientY } = e.touches ? e.touches[0] : e;
+            ctx.beginPath();
+            ctx.moveTo(clientX - canvasRect.left, clientY - canvasRect.top);
+        }
+    
+        function draw(e) {
+            if (!isDrawing) return;
+            const { clientX, clientY } = e.touches ? e.touches[0] : e;
+            ctx.lineTo(clientX - canvasRect.left, clientY - canvasRect.top);
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+        }
+    
+        function stopDrawing() {
+            isDrawing = false;
+        }
+    
+        async function saveDrawing() {
+            if (isCanvasBlank()) {
+                alert("The canvas is empty. Please draw something before submitting!");
+                return;
+            }
+    
+            const imageData = canvas.toDataURL('image/png');
+            const formData = new FormData();
+            formData.append('file', dataURItoBlob(imageData), 'drawing.png');
+    
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            alert(result.message || result.error);
+    
+            // Clear the canvas after saving
+            clearCanvas();
+        }
+    
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    
+        function isCanvasBlank() {
+            const blank = document.createElement('canvas');
+            blank.width = canvas.width;
+            blank.height = canvas.height;
+            // Compare current canvas content to a blank canvas
+            return canvas.toDataURL() === blank.toDataURL();
+        }
+    
+        function dataURItoBlob(dataURI) {
+            const byteString = atob(dataURI.split(',')[1]);
+            const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+            const ab = new ArrayBuffer(byteString.length);
+            const ia = new Uint8Array(ab);
+            for (let i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([ab], { type: mimeString });
+        }
+    </script>
+
+
+</head>
+<body>
+    <h1>Draw Your Dino!</h1>
+    <canvas id="drawingCanvas"></canvas>
+    <button onclick="saveDrawing()">Save Drawing</button>
+</body>
+</html>
+
