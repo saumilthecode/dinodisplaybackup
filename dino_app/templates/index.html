@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Gallery</title>
+</head>
+<body>
+    <h1>Dino Gallery</h1>
+    <div>
+        <!-- Images from /images route -->
+        {% for filename in images %}
+        <img src="/uploads/{{ filename }}" alt="Image" width="300">
+        {% endfor %}
+    </div>
+</body>
+</html>

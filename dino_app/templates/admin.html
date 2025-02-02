@@ -1,0 +1,25 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Uploaded Images</h2>
+    <ul>
+        {% for image in images %}
+        <li>
+            <img src="/uploads/{{ image }}" alt="{{ image }}" style="max-width: 100px;">
+            <form action="/delete/{{ image }}" method="POST" style="display: inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/admin/logout">Logout</a>
+</body>
+</html>
+
